@@ -2,57 +2,57 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Your Project Title Here",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
     "section": "",
-    "text": "A catchy one-line description of your project\n\n\nAuthor One1, Author Two2, Author Three1,2\n\n\n1University Name, 2Research Lab / Company\n\n\n Paper  arXiv  Video  Code  Data"
+    "text": "Fast gate traversal with custom trajectory generation and tracking control\n\n\nEshika Pathak1, Xiang Li1, Ziyu Zhao1\n\n\n1ECE 484, University of Illinois Urbana-Champaign\n\n\n Demo Video  Code  Project Repo"
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Your Project Title Here",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
     "section": "Abstract",
-    "text": "Abstract\n\nReplace this text with your project abstract. Describe the problem you are solving, the key insight or contribution of your work, and the main results. Keep it concise — typically 150–250 words. You can use bold and italic formatting to emphasize key terms.\nFor example: We present a novel approach to [task] that achieves state-of-the-art results on [benchmark]. Our method leverages [key technique] to overcome [limitation of prior work]. Experiments demonstrate that our approach outperforms existing methods by [metric improvement] while requiring [efficiency gain]."
+    "text": "Abstract\n\nThis project studies aggressive quadrotor flight through a sequence of static obstacle gates using the Crazyflie platform. The objective is to complete the course as quickly as possible while maintaining reliable gate traversal. We address this as a planning and control problem: a custom planner generates smooth gate-crossing trajectories from the known course geometry, and a custom tracking controller follows these references using state feedback from simulation or motion capture. Rather than treating gates as isolated waypoints, the planner accounts for gate geometry, approach direction, and transitions between gates to produce trajectories better suited for high-speed flight. Performance is evaluated in terms of completion time, gate success rate, and repeatability, with comparisons against a simple waypoint-based baseline."
   },
   {
-    "objectID": "index.html#video",
-    "href": "index.html#video",
-    "title": "Your Project Title Here",
-    "section": "Video",
-    "text": "Video"
+    "objectID": "index.html#approach",
+    "href": "index.html#approach",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
+    "section": "Approach",
+    "text": "Approach\n\n\n\n\nSystem block diagram.\n\n\n\n\nOur method combines trajectory planning and tracking control for fast gate traversal.\nPlanner. The planner uses the known gate poses and course layout to generate a smooth trajectory through the sequence of gates. Each gate is modeled as a finite opening rather than a single waypoint, so the trajectory design depends not only on gate centers but also on how the quadrotor enters and exits each gate. This allows the planner to preserve momentum through turns, reduce unnecessary corrections, and better respect the geometry of the course (Mellinger and Kumar 2011; Qin et al. 2024).\nController. A custom tracking controller is used to follow the planned reference during flight. Using pose feedback from the simulator or motion-capture system, the controller regulates the quadrotor along the desired path while handling aggressive transitions between gates. The controller is designed to improve tracking accuracy on fast segments where simple waypoint-following can lead to lag, overshoot, or poor alignment at gate entry.\nSince the environment is known in advance and the gates are static, the system can rely on precomputed trajectories together with real-time state feedback during execution. This makes the problem well suited to a trajectory-generation and reference-tracking pipeline on Crazyflie hardware.\nWe evaluate three versions of the system:\n\na waypoint-based baseline;\na custom smooth planner with baseline tracking;\na custom smooth planner with a custom tracking controller.\n\nThe main evaluation metrics are course completion time, number of gates cleared, and consistency across repeated trials."
   },
   {
-    "objectID": "index.html#results",
-    "href": "index.html#results",
-    "title": "Your Project Title Here",
-    "section": "Results",
-    "text": "Results\n\nProvide a brief description of the results shown below. Explain what the reader should observe and why it matters.\n\n\n\n\n\n\nResult 1 caption\n\n\n\n\n\n\n\nResult 2 caption\n\n\n\n\n\n\n\nResult 3 caption"
+    "objectID": "index.html#system-design",
+    "href": "index.html#system-design",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
+    "section": "System Design",
+    "text": "System Design\n\nThe full pipeline consists of four stages: course parsing, trajectory generation, state feedback, and control execution. The gate sequence and poses are extracted from the provided environment description. These are used to construct a reference trajectory that specifies how the quadrotor should approach, pass through, and exit each gate. During execution, the quadrotor state is obtained from the simulator or motion-capture system and passed to the controller, which computes commands for reference tracking.\nThis structure separates high-level trajectory design from low-level flight stabilization. As a result, improvements in planning quality directly translate into more feasible references, while improvements in control improve trajectory tracking under aggressive motion."
   },
   {
-    "objectID": "index.html#qualitative-comparisons",
-    "href": "index.html#qualitative-comparisons",
-    "title": "Your Project Title Here",
-    "section": "Qualitative Comparisons",
-    "text": "Qualitative Comparisons\n\nDescribe the comparison setup — which baselines are you comparing against, and what should the reader look for in the side-by-side results.\n\n\n\n\n\n\nOurs\n\n\nOurs\n\n\n\n\n\nBaseline A\n\n\nBaseline A"
+    "objectID": "index.html#crazysim-setup",
+    "href": "index.html#crazysim-setup",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
+    "section": "CrazySim Setup",
+    "text": "CrazySim Setup\n\nThe current video shows the initial simulation setup and trajectory-following pipeline. Final results will include quantitative comparisons between the waypoint baseline and the proposed planner-controller system, along with representative flight trajectories and gate traversal statistics."
   },
   {
-    "objectID": "index.html#interpolation-demo",
-    "href": "index.html#interpolation-demo",
-    "title": "Your Project Title Here",
-    "section": "Interpolation Demo",
-    "text": "Interpolation Demo\n\nIf your method supports interpolation or continuous control, you can add an interactive slider here. The example below shows how to set one up.\n\n\n\n\n\n\nStart\n\n\n\n\n\nEnd\n\n\n\n\n\n50%"
+    "objectID": "index.html#plan-milestones-and-team-work-division",
+    "href": "index.html#plan-milestones-and-team-work-division",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
+    "section": "Plan, Milestones, and Team Work Division",
+    "text": "Plan, Milestones, and Team Work Division\n\nThe project is organized around a sequence of milestones that build from a basic working pipeline to a complete planner-and-controller system.\n\nMilestone 1: Set up the simulator, verify state feedback, and run a simple waypoint-based baseline.\nMilestone 2: Extract gate geometry and course structure from the environment, and generate smooth gate-crossing trajectories.\nMilestone 3: Implement and tune a custom tracking controller for the planned reference.\nMilestone 4: Evaluate the complete system in simulation and hardware, and compare it against the waypoint baseline using completion time, gate success rate, and repeatability.\n\nTeam work will be organized milestone by milestone. For each milestone, we will break the work into smaller subtasks and divide those subtasks equally among team members. This ensures that planning, implementation, testing, and evaluation are shared evenly across the team throughout the project."
   },
   {
-    "objectID": "index.html#related-work",
-    "href": "index.html#related-work",
-    "title": "Your Project Title Here",
-    "section": "Related Work",
-    "text": "Related Work\n\nHere are some related works in this area:\n\nRelated Paper 1 introduces an idea similar to ours for [topic].\nRelated Paper 2 also addresses [problem] using [approach].\nRelated Paper 3 proposes [technique] which is complementary to our method.\n\nCheck out this survey for a comprehensive overview of the field."
+    "objectID": "index.html#software-stack",
+    "href": "index.html#software-stack",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
+    "section": "Software Stack",
+    "text": "Software Stack\n\nThis project is built on the CrazySim simulator, the Crazyswarm2 ROS 2 framework, and the Crazyflie platform. These tools provide the simulation, communication, and state-estimation interfaces used to test and deploy the planning-and-control pipeline.\nRelevant software references:\n\nCrazySim\nCrazyswarm2\nBitcraze Crazyflie documentation"
   },
   {
     "objectID": "index.html#bibtex",
     "href": "index.html#bibtex",
-    "title": "Your Project Title Here",
+    "title": "Planner and Controller Co-Design for Crazyflie Gate Flight",
     "section": "BibTeX",
-    "text": "BibTeX\n@article{yourname2026project,\n  author    = {Author One and Author Two and Author Three},\n  title     = {Your Project Title Here},\n  journal   = {Conference or Journal Name},\n  year      = {2026},\n}"
+    "text": "BibTeX\n\n@inproceedings{mellinger2011minimum,\n  author    = {Daniel Mellinger and Vijay Kumar},\n  title     = {Minimum Snap Trajectory Generation and Control for Quadrotors},\n  booktitle = {2011 IEEE International Conference on Robotics and Automation (ICRA)},\n  year      = {2011},\n  pages     = {2520--2525}\n}\n\n@article{qin2024togt,\n  author  = {Chao Qin and Maxime S. J. Michet and Jingxiang Chen and Hugh H. T. Liu},\n  title   = {Time-Optimal Gate-Traversing Planner for Autonomous Drone Racing},\n  journal = {IEEE Robotics and Automation Letters},\n  year    = {2024}\n}"
   }
 ]

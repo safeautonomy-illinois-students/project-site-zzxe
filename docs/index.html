@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.27">
+<meta name="generator" content="quarto-1.9.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Your Project Title – Project Title</title>
+<title>Autonomous Drone Racing Through Obstacle Gates – Project Title</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -58,7 +58,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -74,12 +93,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-adfb2833bc15652ec5881dc6381ea988.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-26d9cc88ab9604001aabd73cb1ea1d8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -164,184 +181,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="your-project-title-here" class="level1 title hero-section">
-<h1 class="title">Your Project Title Here</h1>
+<section id="planner-and-controller-co-design-for-crazyflie-gate-flight" class="level1 title hero-section">
+<h1 class="title">Planner and Controller Co-Design for Crazyflie Gate Flight</h1>
 <div class="subtitle">
-<p>A catchy one-line description of your project</p>
+<p>Fast gate traversal with custom trajectory generation and tracking control</p>
 </div>
 <div class="author-list">
-<p><a href="https://example.com"><strong>Author One</strong></a><sup>1</sup>, <a href="https://example.com"><strong>Author Two</strong></a><sup>2</sup>, <a href="https://example.com"><strong>Author Three</strong></a><sup>1,2</sup></p>
+<p><a href="#"><strong><span>Eshika Pathak</span></strong></a><sup>1</sup>, <a href="#"><strong><span>Xiang Li</span></strong></a><sup>1</sup>, <a href="#"><strong><span>Ziyu Zhao</span></strong></a><sup>1</sup></p>
 </div>
 <div class="affiliation-list">
-<p><sup>1</sup>University Name, <sup>2</sup>Research Lab / Company</p>
+<p><sup>1</sup>ECE 484, University of Illinois Urbana-Champaign</p>
 </div>
 <div class="button-row">
-<p><a href="https://arxiv.org/pdf/XXXX.XXXXX" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Paper</span></a> <a href="https://arxiv.org/abs/XXXX.XXXXX" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-arxiv" aria-label="arxiv"></i> arXiv</span></a> <a href="https://www.youtube.com/watch?v=cSQTZoZPJzs" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Video</span></a> <a href="https://github.com/" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a> <a href="https://example.com" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-database" aria-label="database"></i> Data</span></a></p>
+<p><a href="https://youtu.be/ABJNqoz1Dns" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Demo Video</span></a> <a href="https://github.com/safeautonomy-illinois-students/project-site-zzxe" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a> <a href="https://github.com/safeautonomy-illinois-students/project-site-zzxe" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-file-lines" aria-label="file-lines"></i> Project Repo</span></a></p>
 </div>
 </section>
-<!-- ============================================================ -->
-<!-- TEASER IMAGE / VIDEO -->
-<!-- ============================================================ -->
 <div class="section-container">
 <div class="hero-teaser">
-<!-- Option A: Use a static image as the teaser -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="static/images/placeholder-teaser.svg" class="teaser-img img-fluid figure-img"></p>
-<figcaption>Teaser figure showing your method overview or key result.</figcaption>
+<p><img src="static/images/Crazyflie.jpeg" class="teaser-img img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Crazyflie</figcaption>
 </figure>
 </div>
-<!-- Option B: Embed a video teaser (uncomment below, comment out image above)
-
--->
+<p><em>Image source: <a href="https://www.bitcraze.io/products/old-products/crazyflie-2-0/">Bitcraze Crazyflie 2.0</a></em></p>
 </div>
 </div>
-<!-- ============================================================ -->
-<!-- ABSTRACT -->
-<!-- ============================================================ -->
 <section id="abstract" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="abstract">Abstract</h2>
 <div class="abstract-text">
-<p>Replace this text with your project abstract. Describe the problem you are solving, the key insight or contribution of your work, and the main results. Keep it concise — typically 150–250 words. You can use <strong>bold</strong> and <em>italic</em> formatting to emphasize key terms.</p>
-<p>For example: We present a novel approach to [task] that achieves state-of-the-art results on [benchmark]. Our method leverages [key technique] to overcome [limitation of prior work]. Experiments demonstrate that our approach outperforms existing methods by [metric improvement] while requiring [efficiency gain].</p>
+<p>This project studies aggressive quadrotor flight through a sequence of static obstacle gates using the Crazyflie platform. The objective is to complete the course as quickly as possible while maintaining reliable gate traversal. We address this as a planning and control problem: a custom planner generates smooth gate-crossing trajectories from the known course geometry, and a custom tracking controller follows these references using state feedback from simulation or motion capture. Rather than treating gates as isolated waypoints, the planner accounts for gate geometry, approach direction, and transitions between gates to produce trajectories better suited for high-speed flight. Performance is evaluated in terms of completion time, gate success rate, and repeatability, with comparisons against a simple waypoint-based baseline.</p>
 </div>
 </section>
-<!-- ============================================================ -->
-<!-- OVERVIEW / METHOD VIDEO -->
-<!-- ============================================================ -->
-<section id="video" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="video">Video</h2>
+<section id="approach" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="approach">Approach</h2>
+<div class="hero-teaser">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="static/images/block_3.svg" class="teaser-img img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>System block diagram.</figcaption>
+</figure>
+</div>
+</div>
+<div class="content-text">
+<p>Our method combines trajectory planning and tracking control for fast gate traversal.</p>
+<p><strong>Planner.</strong> The planner uses the known gate poses and course layout to generate a smooth trajectory through the sequence of gates. Each gate is modeled as a finite opening rather than a single waypoint, so the trajectory design depends not only on gate centers but also on how the quadrotor enters and exits each gate. This allows the planner to preserve momentum through turns, reduce unnecessary corrections, and better respect the geometry of the course <span class="citation" data-cites="mellinger2011minimum qin2024togt">(<a href="#ref-mellinger2011minimum" role="doc-biblioref">Mellinger and Kumar 2011</a>; <a href="#ref-qin2024togt" role="doc-biblioref">Qin et al. 2024</a>)</span>.</p>
+<p><strong>Controller.</strong> A custom tracking controller is used to follow the planned reference during flight. Using pose feedback from the simulator or motion-capture system, the controller regulates the quadrotor along the desired path while handling aggressive transitions between gates. The controller is designed to improve tracking accuracy on fast segments where simple waypoint-following can lead to lag, overshoot, or poor alignment at gate entry.</p>
+<p>Since the environment is known in advance and the gates are static, the system can rely on precomputed trajectories together with real-time state feedback during execution. This makes the problem well suited to a trajectory-generation and reference-tracking pipeline on Crazyflie hardware.</p>
+<p>We evaluate three versions of the system:</p>
+<ol type="1">
+<li>a waypoint-based baseline;</li>
+<li>a custom smooth planner with baseline tracking;</li>
+<li>a custom smooth planner with a custom tracking controller.</li>
+</ol>
+<p>The main evaluation metrics are course completion time, number of gates cleared, and consistency across repeated trials.</p>
+</div>
+</section>
+<section id="system-design" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="system-design">System Design</h2>
+<div class="content-text">
+<p>The full pipeline consists of four stages: course parsing, trajectory generation, state feedback, and control execution. The gate sequence and poses are extracted from the provided environment description. These are used to construct a reference trajectory that specifies how the quadrotor should approach, pass through, and exit each gate. During execution, the quadrotor state is obtained from the simulator or motion-capture system and passed to the controller, which computes commands for reference tracking.</p>
+<p>This structure separates high-level trajectory design from low-level flight stabilization. As a result, improvements in planning quality directly translate into more feasible references, while improvements in control improve trajectory tracking under aggressive motion.</p>
+</div>
+</section>
+<section id="crazysim-setup" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="crazysim-setup">CrazySim Setup</h2>
+<div class="content-text">
+<p>The current video shows the initial simulation setup and trajectory-following pipeline. Final results will include quantitative comparisons between the waypoint baseline and the proposed planner-controller system, along with representative flight trajectories and gate traversal statistics.</p>
+</div>
 <div class="video-container">
-<!-- Replace with your YouTube or local video embed -->
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/cSQTZoZPJzs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ABJNqoz1Dns" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 </section>
-<!-- ============================================================ -->
-<!-- RESULTS GALLERY -->
-<!-- ============================================================ -->
-<section id="results" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="results">Results</h2>
+<section id="plan-milestones-and-team-work-division" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="plan-milestones-and-team-work-division">Plan, Milestones, and Team Work Division</h2>
 <div class="content-text">
-<p>Provide a brief description of the results shown below. Explain what the reader should observe and why it matters.</p>
-</div>
-<div class="results-grid">
-<div class="result-card">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-result1.svg" class="img-fluid figure-img"></p>
-<figcaption>Result 1 caption</figcaption>
-</figure>
-</div>
-</div>
-<div class="result-card">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-result2.svg" class="img-fluid figure-img"></p>
-<figcaption>Result 2 caption</figcaption>
-</figure>
-</div>
-</div>
-<div class="result-card">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-result3.svg" class="img-fluid figure-img"></p>
-<figcaption>Result 3 caption</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<!-- ============================================================ -->
-<!-- QUALITATIVE COMPARISONS -->
-<!-- ============================================================ -->
-<section id="qualitative-comparisons" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="qualitative-comparisons">Qualitative Comparisons</h2>
-<div class="content-text">
-<p>Describe the comparison setup — which baselines are you comparing against, and what should the reader look for in the side-by-side results.</p>
-</div>
-<div class="comparison-grid">
-<div class="comparison-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-ours.svg" class="img-fluid figure-img"></p>
-<figcaption>Ours</figcaption>
-</figure>
-</div>
-<p><strong>Ours</strong></p>
-</div>
-<div class="comparison-item">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-baseline.svg" class="img-fluid figure-img"></p>
-<figcaption>Baseline A</figcaption>
-</figure>
-</div>
-<p><strong>Baseline A</strong></p>
-</div>
-</div>
-</section>
-<!-- ============================================================ -->
-<!-- INTERACTIVE SLIDER (Optional) -->
-<!-- ============================================================ -->
-<section id="interpolation-demo" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="interpolation-demo">Interpolation Demo</h2>
-<div class="content-text">
-<p>If your method supports interpolation or continuous control, you can add an interactive slider here. The example below shows how to set one up.</p>
-</div>
-<div class="interpolation-panel">
-<div class="interpolation-endpoints">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-start.svg" class="endpoint-img img-fluid figure-img"></p>
-<figcaption>Start</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="static/images/placeholder-end.svg" class="endpoint-img img-fluid figure-img"></p>
-<figcaption>End</figcaption>
-</figure>
-</div>
-</div>
-<input type="range" min="0" max="100" value="50" class="interpolation-slider" id="interpolation-slider">
-<div id="interpolation-value" class="interpolation-value">
-50%
-</div>
-<script>
-  const slider = document.getElementById('interpolation-slider');
-  const display = document.getElementById('interpolation-value');
-  slider.addEventListener('input', function() {
-    display.textContent = this.value + '%';
-  });
-</script>
-</div>
-</section>
-<!-- ============================================================ -->
-<!-- RELATED WORK -->
-<!-- ============================================================ -->
-<section id="related-work" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="related-work">Related Work</h2>
-<div class="content-text">
-<p>Here are some related works in this area:</p>
+<p>The project is organized around a sequence of milestones that build from a basic working pipeline to a complete planner-and-controller system.</p>
 <ul>
-<li><a href="https://example.com">Related Paper 1</a> introduces an idea similar to ours for [topic].</li>
-<li><a href="https://example.com">Related Paper 2</a> also addresses [problem] using [approach].</li>
-<li><a href="https://example.com">Related Paper 3</a> proposes [technique] which is complementary to our method.</li>
+<li><strong>Milestone 1:</strong> Set up the simulator, verify state feedback, and run a simple waypoint-based baseline.</li>
+<li><strong>Milestone 2:</strong> Extract gate geometry and course structure from the environment, and generate smooth gate-crossing trajectories.</li>
+<li><strong>Milestone 3:</strong> Implement and tune a custom tracking controller for the planned reference.</li>
+<li><strong>Milestone 4:</strong> Evaluate the complete system in simulation and hardware, and compare it against the waypoint baseline using completion time, gate success rate, and repeatability.</li>
 </ul>
-<p>Check out <a href="https://example.com">this survey</a> for a comprehensive overview of the field.</p>
+<p>Team work will be organized milestone by milestone. For each milestone, we will break the work into smaller subtasks and divide those subtasks equally among team members. This ensures that planning, implementation, testing, and evaluation are shared evenly across the team throughout the project.</p>
 </div>
 </section>
-<!-- ============================================================ -->
-<!-- BIBTEX -->
-<!-- ============================================================ -->
+<section id="software-stack" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="software-stack">Software Stack</h2>
+<div class="content-text">
+<p>This project is built on the CrazySim simulator, the Crazyswarm2 ROS 2 framework, and the Crazyflie platform. These tools provide the simulation, communication, and state-estimation interfaces used to test and deploy the planning-and-control pipeline.</p>
+<p>Relevant software references:</p>
+<ul>
+<li><a href="https://github.com/gtfactslab/CrazySim">CrazySim</a></li>
+<li><a href="https://github.com/IMRCLab/crazyswarm2">Crazyswarm2</a></li>
+<li><a href="https://www.bitcraze.io/documentation/">Bitcraze Crazyflie documentation</a></li>
+</ul>
+</div>
+</section>
 <section id="bibtex" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="bibtex">BibTeX</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">yourname2026project</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>    = {Author One and Author Two and Author Three},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>     = {Your Project Title Here},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>   = {Conference or Journal Name},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2026},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">@inproceedings</span>{<span class="ot">mellinger2011minimum</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>    = {Daniel Mellinger and Vijay Kumar},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>     = {Minimum Snap Trajectory Generation and Control for Quadrotors},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">booktitle</span> = {2011 IEEE International Conference on Robotics and Automation (ICRA)},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2011},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>     = {2520--2525}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">qin2024togt</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>  = {Chao Qin and Maxime S. J. Michet and Jingxiang Chen and Hugh H. T. Liu},</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>   = {Time-Optimal Gate-Traversing Planner for Autonomous Drone Racing},</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> = {IEEE Robotics and Automation Letters},</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>    = {2024}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <!-- ============================================================ -->
 <!-- FOOTER -->
@@ -352,7 +305,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-mellinger2011minimum" class="csl-entry" role="listitem">
+Mellinger, Daniel, and Vijay Kumar. 2011. <span>“Minimum Snap Trajectory Generation and Control for Quadrotors.”</span> <em>2011 IEEE International Conference on Robotics and Automation (ICRA)</em>, 2520–25.
+</div>
+<div id="ref-qin2024togt" class="csl-entry" role="listitem">
+Qin, Chao, Maxime S. J. Michet, Jingxiang Chen, and Hugh H. T. Liu. 2024. <span>“Time-Optimal Gate-Traversing Planner for Autonomous Drone Racing.”</span> <em>IEEE Robotics and Automation Letters</em>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -754,7 +715,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
