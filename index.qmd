@@ -77,6 +77,8 @@ This project studies quadrotor flight through a sequence of static obstacle gate
 :::
 
 ::: {.content-text}
+The system uses the Crazyflie IMU together with external pose feedback from the motion-capture system, and this information is processed through the Crazyflie state-estimation pipeline, such as its Kalman-filter-based estimator; one challenge in aggressive flight is that estimation noise, latency, or filtered-pose error can degrade tracking performance, so we plan to begin with the provided onboard estimation stack and account for these effects when designing and tuning the planner-controller pipeline.
+
 Our method combines trajectory planning and tracking control for fast gate traversal.
 
 **Planner.** The planner uses the known gate poses and course layout to generate a smooth trajectory through the sequence of gates. Each gate is modeled as a finite opening rather than a single waypoint, so the trajectory design depends not only on gate centers but also on how the quadrotor enters and exits each gate. This allows the planner to preserve momentum through turns, reduce unnecessary corrections, and better respect the geometry of the course [@mellinger2011minimum; @qin2024togt].
@@ -92,6 +94,8 @@ We evaluate three versions of the system:
 3. a custom smooth planner with a custom tracking controller.
 
 The main evaluation metrics are course completion time, number of gates cleared, and consistency across repeated trials.
+
+If time permits, we will also explore implementing a custom low-level controller to study whether tighter integration with the onboard control stack can further improve tracking performance.
 :::
 
 
